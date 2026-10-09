@@ -54,7 +54,8 @@ int main() {
 		std::cout << "2. Plus ou Moins" << std::endl;
 		std::cout << "3. Jeu de Nim" << std::endl;
 		std::cout << "4. Fonctions" << std::endl;
-		std::cout << "5. Quitter" << std::endl;
+		std::cout << "5. Game of Life" << std::endl;
+		std::cout << "6. Quitter" << std::endl;
 		std::cin >> choixGame;
 		if (choixGame==1){
 			bool calculatrice = true;
@@ -249,12 +250,52 @@ int main() {
 				int tabFT[5] = {};
 				Flip(tabF,tabFT, 5, 5);
 			}
-			else if (choixFonc == 3) {
-				int tabT[5] = {9, 50 ,87, 45, 63};
-				//Taille(tabT, 5);
-			}
+			//else if (choixFonc == 3) {
+			//	int tabT[5] = {9, 50 ,87, 45, 63};
+			//	Taille(tabT, 5);}
 		}
 		else if (choixGame == 5) {
+			int gridCol;
+			int gridLig;
+			int cellCol;
+			int cellLig;
+			std::cout << "Veuillez entrer un nombre de Colonnes: ";
+			std::cin >> gridCol;
+			std::cout << "Veuillez entrer un nombre de Lignes: ";
+			std::cin >> gridLig;
+			std::cout << "Veuillez selectioner l'emplacement de la cellule" << std::endl;
+			std::cout << "Colonne: ";
+			std::cin >> cellCol;
+			std::cout << "Ligne: ";
+			std::cin >> cellLig;
+			//generation grille avec Cellule établie
+			for (int y = 0; y < gridLig*2-1; y++) {
+				if (y % 2 == 1) {
+					for (int x = 0; x < gridCol; x++) {
+						std::cout << "--- ";
+					}
+					std::cout << std::endl;
+				}
+				else {
+					for (int x = 0;x<=gridCol-1; x++) {
+						if (x == cellCol && y/2 == cellLig) {
+							std::cout << " o ";
+						}
+						else {
+							std::cout << " x ";
+						}
+						if (x < gridCol - 1) {
+							std::cout << "|";
+						}
+					}
+				std::cout << std::endl;
+				}
+			}
+
+			//logique de vie de cellules:
+
+		}
+		else if (choixGame == 6) {
 			return 0;
 		}
 	}
